@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jarvis AI Assistant</title>
+    <!-- Include Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-..." crossorigin="anonymous">
+    <style>
+        body {
+            background-image: url('https://wallpapercave.com/wp/wp4533130.jpg');
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+            overflow: hidden; /* Hide overflow to prevent scrollbars */
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            position: relative; /* Relative positioning for indicator */
+        }
+        .title {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        .logo {
+            width: 150px; /* Adjust size as needed */
+            height: auto;
+            margin-bottom: 20px;
+        }
+        .indicator {
+            position: absolute; /* Absolute positioning for indicator */
+            bottom: 60px; /* Adjust position as needed */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px; /* Adjust size as needed */
+            height: 50px; /* Adjust size as needed */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .indicator i {
+            font-size: 24px; /* Adjust size as needed */
+            color: #63E6BE; /* Adjust color as needed */
+            animation: spin 2s linear infinite; /* Spin animation */
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .popup {
+            display: none;
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px 20px;
+            border-radius: 50px; /* Make it circular */
+            color: white;
+        }
+    </style>
+    <script>
+        function activateJarvis() {
+            document.getElementById('popup').style.display = 'block';
+            fetch('/activate_jarvis', {
+                method: 'POST'
+            });
+        }
+        function stopJarvis() {
+            document.getElementById('popup').style.display = 'none';
+            fetch('/stop_jarvis', {
+                method: 'POST'
+            });
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Welcome to Jarvis Web App!</h1>
+        <img class="logo" src="jarvis_logo.png" alt="Jarvis Logo">
+        <button class="btn" onclick="activateJarvis()">Activate Jarvis</button>
+        <button class="btn" onclick="stopJarvis()">Stop Jarvis</button>
+        <div id="popup" class="popup">Jarvis is listening...</div>
+        <div class="indicator">
+            <i class="fa-solid fa-spinner" style="color: #63E6BE;"></i> <!-- Loading animation -->
+        </div>
+    </div>
+</body>
+</html>

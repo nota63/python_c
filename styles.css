@@ -1,0 +1,41 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('https://th.bing.com/th/id/OIP.X1WHmPNQHhdAcvCEVKVrGAHaHa?rs=1&pid=ImgDetMain'); /* Add your background image here */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.content {
+    text-align: center;
+}
+
+h1 {
+    color: #fff;
+    font-size: 48px;
+    margin-bottom: 30px;
+}
+
+#start-btn {
+    padding: 15px 30px;
+    border: none;
+    background-color: #ff6347; /* Change button color as desired */
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 24px;
+    transition: background-color 0.3s;
+}
+
+#start-btn:hover {
+    background-color: #ff4500; /* Change button hover color as desired */
+}
